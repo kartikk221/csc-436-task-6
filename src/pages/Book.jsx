@@ -2,12 +2,17 @@ import Container from '../components/Container';
 import { useParams } from 'react-router-dom';
 import { useBookData } from '../hooks/useBookData';
 import Skeleton from 'react-loading-skeleton';
+import ErrorAlert from '../components/ErrorAlert';
 
 const Book = () => {
     const { id = '' } = useParams();
     const [data] = useBookData(id);
 
+    // Return a skeleton if the data is loading
     if (!data) return <Skeleton count="1" height="40em" className="rounded-lg" />;
+
+    // Return an error if the data is an instance of Error
+    if (data instanceof Error) return <ErrorAlert>{data.message}</ErrorAlert>;
 
     // Desctructure the data
     const { title, author, publisher, imageURL, year, country, pages } = data;
