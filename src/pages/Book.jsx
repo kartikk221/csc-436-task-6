@@ -18,7 +18,7 @@ const Book = () => {
             className="group rounded-lg bg-black/100 flex flex-row mb-4 hover:bg-black/90 transition-all"
         >
             <div className="flex">
-                <img src={imageURL} className="h-[100%] w-[30em] rounded-md"></img>
+                <img src={imageURL} className="h-[28em] w-[30em] rounded-md"></img>
             </div>
             <div className="flex flex-col ml-8">
                 <p className="text-5xl font-extrabold text-white">{title}</p>
